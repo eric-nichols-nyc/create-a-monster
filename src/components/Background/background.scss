@@ -1,0 +1,17 @@
+.background{
+    width: 500px;
+    height: 600px;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    display: flex;
+    justify-content: flex-end;
+    z-index: -1;
+    overflow: hidden;
+
+    .background__number{
+        color: #ccc;
+        font-family: 'MutantAcademyBB';
+        font-size: 550px; 
+    }
+}

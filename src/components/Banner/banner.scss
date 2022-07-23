@@ -1,0 +1,23 @@
+.banner{
+    background-color: var(--color-blue);
+    margin-top: 0;
+    border-top: 8px solid #0274B8;
+    border-bottom: 8px solid #0274B8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h1{
+        color: white;
+        font-family: 'MutantAcademyBB';
+        font-size: 55px;
+        text-transform: uppercase; 
+    }
+
+    .close-button{
+        position: absolute;
+        right: 20px;
+        cursor: pointer;
+    }
+}
+

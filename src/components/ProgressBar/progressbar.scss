@@ -1,0 +1,74 @@
+.number{
+    font-family: 'MutantAcademyBB', serif;
+    font-size: 21px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #8e918e;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    color: white;
+    z-index: 1;
+    transform: scale(0.5);
+    transition-property: all;
+    transition-duration: 0.29s;
+    line-height: 1.25;
+
+    span{
+      display: none;
+    }
+
+    &.active{
+      background: #0076bc;
+      transform: scale(1.25);
+      box-shadow: 0px 0px 0px 3px #0076bc;
+
+      span{
+        box-sizing: border-box;
+        display: block;
+        border: 2px solid white;
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+      }
+    }
+
+    &.blue{
+      background: #0076bc;
+    }
+  }   
+
+ 
+
+  .over{
+    position: relative;
+    height: 3px;
+    background-color: #0076bc;
+    left: 10px;
+    z-index: 0;
+    transition-property: width;
+    transition-duration: 0.29s;
+  }
+
+  .progressbar{
+    font-family: 'Catamaran', serif;
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    width: 100%;
+    max-width: 400px;
+    height: 60px;
+    margin-top: 30px;
+    position: relative;
+  }
+
+  .progressbar__bar{
+    position: absolute;
+    top: 14px;
+    width: 92%;
+    height: 3px;
+    background-color: #8e918e;
+    left: 15px;
+  }

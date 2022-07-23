@@ -1,0 +1,58 @@
+.accessories {
+  width: 250px;
+  min-height: 170px;
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+
+  // &:after{
+  //     content: url('../../../public/images/block_shadow.png');
+  //     width: 299px;
+  //     height: 11px;
+  //     position: absolute;
+  //     bottom: 8px;
+  //     left: 0;
+  // }
+  .accessories_list {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 350px;
+    &.wid50 {
+      width: 50px;
+    }
+  }
+  .accessories_wid50 {
+  }
+  .accessories__icons {
+    width: 190px;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .accessory_icons_holder {
+    position: absolute;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+  }
+
+  .close-button {
+    position: absolute;
+    right: 20px;
+    cursor: pointer;
+  }
+
+  .custom_btn {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: white;
+    font-weight: bold;
+  }
+}

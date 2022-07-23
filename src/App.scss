@@ -1,0 +1,237 @@
+
+$LIGHTING_FLOOR: 1;
+$LIGHTING_CEIL: 2;
+$LIGHTING_FLAT: 3;
+
+@mixin text3d($primary,
+  $depth: 5,
+  $shadowsteps: 5,
+  $shadowincrementer: 3px,
+  $shadowopacity: .5,
+  $primaryshadowcolour: #000,
+  $lighting: $LIGHTING_CEIL) {
+  $predefinedShadows: (0 0 5px rgba($primaryshadowcolour, .05),
+    0 -1px 3px rgba($primaryshadowcolour, .2),
+    0 3px 5px rgba($primaryshadowcolour, .2));
+  $value: ();
+
+  @for $i from 1 through $depth {
+    $num: $i +px;
+    $hueadjust: $i;
+
+    @if($lighting ==$LIGHTING_FLOOR) {
+      $hueadjust: ($i * 2 - $depth - 5) * 1%;
+    }
+
+    @elseif($lighting ==$LIGHTING_CEIL) {
+      $hueadjust: -($i*2 + $depth - 10) * 1%;
+    }
+
+    @elseif($lighting ==$LIGHTING_FLAT) {
+      $hueadjust: -$depth * 1%;
+    }
+
+    $colour: adjust-color($primary, $lightness: $hueadjust);
+    $theShadow: 0 $num 0 $colour;
+    $value: append($value, $theShadow, comma);
+  }
+
+  @for $i from 1 through $shadowsteps {
+    @if($i >=length($predefinedShadows)) {
+      $dist: $i * $shadowincrementer;
+      $value: append($value, 0 $dist $dist rgba($primaryshadowcolour, $shadowopacity));
+    }
+
+    @else {
+      $value: append($value, nth($predefinedShadows, $i));
+    }
+  }
+
+  text-shadow: $value;
+}
+
+$primarycolour: rgb(5, 72, 190);
+$bp: '767px';
+
+:root{
+  --color-blue: #054875;
+}
+
+
+h1 {
+  color: #FFF;
+  font-size: 60px;
+  line-height: 1em;
+  margin: 0;
+  text-align: center;
+  width: 100%;
+
+  @include text3d(adjust-color($primarycolour, $lightness: -8%),
+    $depth: 8,
+    $primaryshadowcolour: adjust-color($primarycolour, $lightness: -10%, $saturation: +20%),
+    $shadowopacity: .3);
+}
+
+html,
+body {
+  min-height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-image: linear-gradient(0deg, rgba(203, 208, 209, 1) 29%, rgba(211, 213, 214, 1) 34%, rgba(213, 214, 215, 1) 49%, rgba(249, 240, 240, 1) 100%, rgba(255, 255, 255, 1) 100%);  
+  color: #767676;
+  background-attachment: fixed;;
+}
+
+body.fontLoaded {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+img{
+  max-width: 100%;
+  height: auto;
+}
+
+#app {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ width: 100vw;
+ height: 100%;
+ max-height: 900px;
+ position: relative;
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+    max-height: 830px;
+    padding: 0;
+    position: relative;
+    // border: 2px solid blue;
+}
+
+.row{
+  padding: 0 20px;
+}
+
+.main{
+  padding: 0 50px;
+}
+
+.home{
+  position: relative;
+  margin: 0 auto;
+  height: 100%;
+  max-width: 850px;
+}
+h3,h2,h1{
+  color: #0077bc;
+  font-family: 'Graduate', serif;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+}
+h1{
+  font-size: 30px;
+}
+h2{
+  font-size: 30px;
+}
+h3{
+  font-size: 22px;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+button{
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.btn{
+  text-transform: uppercase;
+  &--square{
+    margin: 5px;
+    border-radius: 5px;
+  }
+  &--rect{
+    margin-bottom: 5px;
+    border-radius: 5px;
+    display: block;
+    width: 100%;
+    height: 40px;
+    position: relative;
+    background-color: transparent;
+    padding: 0;
+    border: 1px solid #ccc;
+    box-shadow: 0px 3px 8px #aaa, inset 0px 2px 3px #fff;
+  }
+
+  &--round{
+    border-radius: 50%;
+    color: #cacaca;
+    cursor: pointer;
+    font-family: 'MutantAcademyBB', serif;
+    font-weight: 800;
+    height: 60px;
+    width: 60px;
+    border-radius: 240px;
+    padding: 0px;
+    box-shadow: inset 0px 1px 1px rgba(255, 255, 255, 0.5),
+      0px 1px 2px rgba(0, 0, 0, 0.2);
+    background: radial-gradient(#fbfbfb, #e1e1e1);
+    border: 4px solid #d4d4d4;
+  }
+}
+
+.step-slide{
+  // border: 1px solid red;
+  flex-direction: column;
+  align-items: center;
+
+  // @media screen and (min-width:$bp){
+  //   flex-direction: row;
+  // }
+}
+
+.accessories-steps{
+  display: flex;
+  z-index: 1;
+  flex-direction: column;
+
+  @media screen and (min-width: $bp) {
+    flex-direction: row;
+  }
+}
+
