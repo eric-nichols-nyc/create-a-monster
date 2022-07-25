@@ -14,31 +14,34 @@ function useMonsterCreator() {
     setShowHelp,
   ] = useContext(MonsterContext);
 
+  const { currentStep, stepCopy,monsterColor,monsterLashes,monsterNameIsValid, monsterUrl, monsterName,monsterHair,monsterFur,monsterType, monsterHat, monsterHorn, startIndex, activeSlideIndex } = state;
+
   const lastStep = 4;
+
   function goForward() {
-    if (state.currentStep + 1 === lastStep && !state.monsterNameIsValid) {
+    if (currentStep + 1 === lastStep && !monsterNameIsValid) {
       return;
-    } else if (state.currentStep + 1 === lastStep && state.monsterNameIsValid) {
+    } else if (currentStep + 1 === lastStep && monsterNameIsValid) {
       var node = document.getElementById('my-monster');
       htmlToImage
         .toPng(node)
-        .then(function (dataUrl) {
-          setState((state) => ({ ...state, monsterUrl: dataUrl }));
+        .then( (dataUrl) =>  {
           setState((state) => ({
             ...state,
-            currentStep: state.currentStep + 1,
-          }));
-          setState((state) => ({
-            ...state,
-            stepCopy: copy[state.currentStep],
+            monsterUrl: dataUrl,
+            currentStep: currentStep + 1,
+            stepCopy: copy[currentStep],
           }));
         })
         .catch(function (error) {
           console.error('oops, something went wrong!', error);
         });
     } else {
-      setState((state) => ({ ...state, currentStep: state.currentStep + 1 }));
-      setState((state) => ({ ...state, stepCopy: copy[state.currentStep] }));
+      setState((state) => ({
+        ...state,
+        currentStep: currentStep + 1,
+        stepCopy: copy[currentStep],
+      }));
     }
   }
 
@@ -47,8 +50,11 @@ function useMonsterCreator() {
   }
 
   function goBack() {
-    setState((state) => ({ ...state, currentStep: state.currentStep - 1 }));
-    setState((state) => ({ ...state, stepCopy: copy[state.currentStep] }));
+    setState((state) => ({
+      ...state,
+      currentStep: currentStep - 1,
+      stepCopy: copy[currentStep],
+    }));
   }
 
   function setMonsterColor(id) {
@@ -97,26 +103,26 @@ function useMonsterCreator() {
   function setActiveSlide(num) {
     setState((state) => ({ ...state, activeSlideIndex: num }));
   }
-  function setCurrentStep(num){
-    setState((state) => ({...state, currentStep: num}))
+  function setCurrentStep(num) {
+    setState((state) => ({ ...state, currentStep: num }));
   }
 
   return {
-    monsterType: state.monsterType,
-    currentStep: state.currentStep,
-    stepCopy: state.stepCopy,
-    monsterColor: state.monsterColor,
-    monsterLashes: state.monsterLashes,
-    monsterHair: state.monsterHair,
-    monsterFur: state.monsterFur,
-    monsterHat: state.monsterHat,
-    monsterHorn: state.monsterHorn,
-    monsterUrl: state.monsterUrl,
-    monsterName: state.monsterName,
+    monsterType,
+    currentStep,
+    stepCopy,
+    monsterColor,
+    monsterLashes,
+    monsterHair,
+    monsterFur,
+    monsterHat,
+    monsterHorn,
+    monsterUrl,
+    monsterName,
     showIcons: showIcons,
     showHelp: showHelp,
-    startIndex: state.startIndex,
-    activeSlideIndex: state.activeSlideIndex,
+    startIndex,
+    activeSlideIndex,
     goForward,
     goBack,
     setMonsterType,

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import useMonsterCreator from '../../hooks/useMonsterCreator';
 import './monster.scss';
 
