@@ -2,6 +2,5 @@
 
 ## The Summary
 
-I built this to demonstrate how to use react context hook for state management
+A complete example of how to architect a React app using the Context API
 
-It took me about 4 weeks of coding after work to build this project start to finish.
