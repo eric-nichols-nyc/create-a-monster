@@ -120,7 +120,7 @@ export default function NameSelector() {
     <div>
       <div>
         <input
-          css={input}
+          style={input}
           name="firstName"
           defaultValue="First Name"
           onFocus={e => clearInput(e)}
@@ -134,7 +134,7 @@ export default function NameSelector() {
       </div>{' '}
       <div>
         <input
-          css={input}
+          style={input}
           name="lastName"
           defaultValue="Last Initial"
           onFocus={e => clearInput(e)}
@@ -146,10 +146,10 @@ export default function NameSelector() {
         />
         {error2 && <div className="error"> error </div>}{' '}
       </div>{' '}
-      <button className="btn--rect" onClick={submit}>
+      <button style={button} onClick={submit}>
         Generate{' '}
       </button>{' '}
-      <div css={name}>
+      <div style={name}>
         <p> {monsterName} </p>{' '}
       </div>{' '}
     </div>

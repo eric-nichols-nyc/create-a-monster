@@ -34,14 +34,14 @@ export default function ShareSelector() {
       }}
     >
       <button
-        className="btn--rect"
+        style={button}
         onClick={() => {
           download()
         }}
       >
         DownLoad
       </button>
-      <button onClick={() => setCurrentStep(0)} className="btn rect">Create A New Monster</button>
+      <button onClick={() => setCurrentStep(0)} style={button}>Create A New Monster</button>
     </div>
   )
 }
