@@ -1,7 +1,7 @@
 import useMonsterCreator from '../../hooks/useMonsterCreator'
 import './header.scss';
 
-function Header({ copy }) {
+function Header() {
   const { stepCopy } = useMonsterCreator()
 
   return (

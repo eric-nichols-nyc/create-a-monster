@@ -23,10 +23,11 @@
 
 .slider {
   position: relative;
-  height: 500px;
+  height: auto;
   width: 500px;
   overflow: hidden;
   margin-top: -35px;
+  margin-bottom: 20px;
 }
 
 .slider__slide {

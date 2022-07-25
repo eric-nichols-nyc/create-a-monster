@@ -84,7 +84,6 @@ function useMonsterCreator() {
   }
 
   function showHelpGallery(bool) {
-    console.log(bool);
     setShowHelp(bool);
   }
 

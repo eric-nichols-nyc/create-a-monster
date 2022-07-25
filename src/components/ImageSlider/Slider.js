@@ -46,13 +46,11 @@ function Slider({
 
   useEffect(() => {
     // console.log('activeSlide = ', activeSlide);
-    // console.log('test 1 = ', state._slides[1])
     callback(activeSlide)
     transitionRef.current = smoothTransition();
   }, [activeSlide]);
 
   useEffect(() => {
-    console.log('test 2 = ', state._slides[1])
     callback(state._slides[1].index)
   },[state._slides])
 
@@ -79,7 +77,6 @@ function Slider({
   // }, [state, transition]);
 
   const smoothTransition = () => {
-    console.log('smootsmoothTransition');
     let _slides = [];
 
     // We're at the last slide.

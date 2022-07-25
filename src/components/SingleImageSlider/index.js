@@ -20,14 +20,6 @@ const SingleImageSlider = ({ data, width, type, height, closeButton }) => {
     setMonsterType(id);
   }
 
-  // useEffect(() => {
-  //   console.log('monsterType= ', monsterType )
-  // }, [monsterType])
-
-  // useEffect(() => {
-  //   console.log('slides= ', slides )
-  // }, [slides])
-
   useEffect(() => {
     // if startIndex !== 0 restructure data
     let start = monsterType.index;

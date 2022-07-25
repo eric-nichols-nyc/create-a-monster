@@ -31,12 +31,6 @@ function Slider({ slides, width, height, type, closeButton, callback }) {
   const transitionRef = useRef();
 
   useEffect(() => {
-    // 1. on every render set transitionRef current property to a function
-    // transitionRef.current = smoothTransition;
-    // transitionRef.current = smoothTransition();
-  });
-
-  useEffect(() => {
     // console.log('activeSlide = ', activeSlide);
     // console.log('test 1 = ', state._slides[1])
     callback(activeSlide);
@@ -44,7 +38,6 @@ function Slider({ slides, width, height, type, closeButton, callback }) {
   }, [activeSlide]);
 
   useEffect(() => {
-    console.log('test 2 = ', state._slides[1]);
     callback(state._slides[1].index);
   }, [state._slides]);
 
@@ -65,13 +58,7 @@ function Slider({ slides, width, height, type, closeButton, callback }) {
     };
   }, []);
 
-  // if transition time is 0 set it back to 0.45
-  // useEffect(() => {
-  //   if (transition === 0) setState({ ...state, transition: 0.45 });
-  // }, [state, transition]);
-
   const smoothTransition = () => {
-    console.log('smootsmoothTransition');
     let _slides = [];
 
     // We're at the last slide.

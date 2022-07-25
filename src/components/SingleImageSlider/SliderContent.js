@@ -1,7 +1,6 @@
 import PropTypes, { arrayOf } from 'prop-types';
 
 function SliderContent({ children, translate, transition, width, image }) {
-  console.log(image)
   return <div className='slider_content'>
     <img src={image.url} />
   </div>;
