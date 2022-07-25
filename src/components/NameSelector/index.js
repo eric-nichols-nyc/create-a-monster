@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState } from 'react'
 import useMonsterCreator from '../../hooks/useMonsterCreator'
 import badwords from './badwords.json'
 import names from './MonsterNames'

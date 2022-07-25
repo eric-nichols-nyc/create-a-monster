@@ -14,10 +14,6 @@ function Home() {
   const [images, setImages] = useState();
   const {
     currentStep,
-    monsterType,
-    setStartIndex,
-    activeSlideIndex,
-    setActiveSlide,
   } = useMonsterCreator();
 
   useEffect(() => {
