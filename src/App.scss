@@ -58,6 +58,21 @@ $bp: '767px';
 }
 
 
+*{
+  box-sizing: border-box;
+}
+
+@font-face {
+ font-family: "MutantAcademyBB";
+ font-style: normal;
+ font-weight: 700;
+ src: local(""), url("../public/fonts/MutantAcademyBB.ttf") format("truetype");
+}
+
+.flex{
+ display: flex;
+}
+
 h1 {
   color: #FFF;
   font-size: 60px;

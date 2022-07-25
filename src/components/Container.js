@@ -1,14 +1,14 @@
-import { useState, useEffect } from "react";
-import Splash from "./Splash";
-import SideBar from "./SideBar";
-import Navigation from "./Navigation";
-import Monster from "./Monster";
-import ProgressBar from "./ProgressBar";
-import Background from "./Background";
-import Header from "./Header";
-import ImageSlider from "./ImageSlider";
-import useMonsterCreator from "../hooks/useMonsterCreator";
-import { monsters } from "../data/data";
+import { useState, useEffect } from 'react';
+import Splash from './Splash';
+import SideBar from './SideBar';
+import Navigation from './Navigation';
+import Monster from './Monster';
+import ProgressBar from './ProgressBar';
+import Background from './Background';
+import Header from './Header';
+import SingleImageSlider from './SingleImageSlider';
+import useMonsterCreator from '../hooks/useMonsterCreator';
+import { monsters } from '../data/data';
 
 function Home() {
   const [images, setImages] = useState();
@@ -31,29 +31,29 @@ function Home() {
   if (!images) return <></>;
 
   return (
-    <div className="home row">
+    <div className='home row'>
       {currentStep === -1 && <Splash />}
       {currentStep !== -1 && (
         <>
           <Background />
-          <div className="flex row" style={{ justifyContent: "center" }}>
+          <div className='flex row' style={{ justifyContent: 'center' }}>
             <ProgressBar />
           </div>
         </>
       )}
       {currentStep === 0 && (
-        <div className="flex row step-slide">
+        <div className='flex row step-slide'>
           <Header />
-          <ImageSlider data={images} width={500} height={525} />
+          <SingleImageSlider data={images} width={500} height={525} />
         </div>
       )}
       {currentStep > 0 && (
-        <div className="accessories-steps">
+        <div className='accessories-steps'>
           <SideBar />
           <Monster />
         </div>
       )}
-       {currentStep !== -1 &&  (<Navigation />)}
+      {currentStep !== -1 && <Navigation />}
     </div>
   );
 }

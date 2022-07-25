@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Slider from './Slider';
 import useMonsterCreator from '../../hooks/useMonsterCreator';
-import './SingleImageSlider.scss';
+import './singleImageSlider.scss';
 
 const SingleImageSlider = ({ data, width, type, height, closeButton }) => {
   const { monsterType, setMonsterType } = useMonsterCreator();
