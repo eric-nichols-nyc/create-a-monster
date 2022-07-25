@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 function Arrow({ direction, handleClick }) {
   return (
     <div
-    className="arrow"
+    className={`arrow ${direction === 'right' && 'right'}`}
       onClick={handleClick}
     >
       {direction === 'right' ? (

@@ -146,7 +146,7 @@ export default function NameSelector() {
         />
         {error2 && <div className="error"> error </div>}{' '}
       </div>{' '}
-      <button css={button} onClick={submit}>
+      <button className="btn--rect" onClick={submit}>
         Generate{' '}
       </button>{' '}
       <div css={name}>

@@ -132,13 +132,12 @@ function Slider({ slides, width, height, type, closeButton, callback }) {
         translate={translate}
         transition={transition}
         width={width * _slides.length}
-        image={slides[0]}
+        image={slides[activeSlide]}
       >
         {_slides.map((i) => getSlideByType(i))}
       </SliderContent>
       <Arrow direction='left' handleClick={prevSlide} />
       <Arrow
-        className='right'
         direction='right'
         handleClick={() => {
           nextSlide();

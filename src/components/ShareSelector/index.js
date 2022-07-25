@@ -27,21 +27,21 @@ export default function ShareSelector() {
   }
   return (
     <div
-      // css={css`
-      //   display: flex;
-      //   flex: 1;
-      //   flex-direction: column;
-      // `}
+      style={{ 
+        display: 'flex',
+        flex: 1,
+        flexDirection: 'column'
+      }}
     >
       <button
-        css={button}
+        className="btn--rect"
         onClick={() => {
           download()
         }}
       >
         DownLoad
       </button>
-      <button onClick={() => setCurrentStep(0)} css={button}>Create A New Monster</button>
+      <button onClick={() => setCurrentStep(0)} className="btn rect">Create A New Monster</button>
     </div>
   )
 }
