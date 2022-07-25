@@ -4,23 +4,16 @@ import Swatch from '../Swatch';
 import useMonsterCreator from '../../hooks/useMonsterCreator';
 import './accessories.scss';
 
-const accessories = [
-  {
-    type: 'hair',
-  },
-  {
-    type: 'eyelashes',
-  },
-  {
-    type: 'hats',
-  },
-  {
-    type: 'HORNS',
-  },
-];
+interface IAccessory { 
+  id:string;
+  url:string;
+}
+
+const accessories = ['hair','eyelashes','hats','HORNS'];
+
 export default function Accessories() {
   const { monsterType, showIcons, setShowIcon } = useMonsterCreator();
-
+  const {swatches:{hair}, swatches:{eyelashes}, swatches:{hats}, swatches:{horns}} = monsterType;
   const [acc, setAcc] = useState('hair');
   const [accList, setList] = useState([]);
 
@@ -28,16 +21,16 @@ export default function Accessories() {
     setList([]);
     switch (acc) {
       case 'hair':
-        setList(monsterType.swatches.hair);
+        setList(hair);
         return;
       case 'eyelashes':
-        setList(monsterType.swatches.eyelashes);
+        setList(eyelashes);
         return;
       case 'hats':
-        setList(monsterType.swatches.hats);
+        setList(hats);
         return;
       case 'HORNS':
-        setList(monsterType.swatches.horns);
+        setList(horns);
         return;
       default:
         console.log('Your accessory was not found');
@@ -52,7 +45,7 @@ export default function Accessories() {
           <div>
             {accList &&
               accList.length > 0 &&
-              accList.map((a) => (
+              accList.map((a:IAccessory) => (
                 <Swatch key={a.id} id={a.id} url={a.url} type={acc} />
               ))}
           </div>
@@ -65,7 +58,7 @@ export default function Accessories() {
         {accessories.map((a) => (
           <AccessoryButton
             key={Math.random()}
-            copy={a.type}
+            copy={a}
             callback={setAcc}
           />
         ))}

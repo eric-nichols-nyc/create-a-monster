@@ -23,11 +23,11 @@ $LIGHTING_FLAT: 3;
       $hueadjust: ($i * 2 - $depth - 5) * 1%;
     }
 
-    @elseif($lighting ==$LIGHTING_CEIL) {
+    @if($lighting ==$LIGHTING_CEIL) {
       $hueadjust: -($i*2 + $depth - 10) * 1%;
     }
 
-    @elseif($lighting ==$LIGHTING_FLAT) {
+    @if($lighting ==$LIGHTING_FLAT) {
       $hueadjust: -$depth * 1%;
     }
 
@@ -162,17 +162,6 @@ h3{
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -231,7 +220,6 @@ button{
 }
 
 .step-slide{
-  // border: 1px solid red;
   flex-direction: column;
   align-items: center;
 

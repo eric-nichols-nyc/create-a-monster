@@ -1,6 +1,12 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from 'react';
 import Swatch from '../Swatch';
 import useMonsterCreator from '../../hooks/useMonsterCreator';
+
+interface IProps {
+  id:string;
+  url:string;
+}
 
 function Colors() {
   const [fur, setFur] = useState(false);
@@ -8,15 +14,17 @@ function Colors() {
   const [type, setType] = useState('color');
   const [copy, setCopy] = useState('ADD FUR');
   const { monsterType, monsterColor, setMonsterFur } = useMonsterCreator();
+  const MFur = monsterType.swatches.fur;
+  const MColors = monsterType.swatches.colors;
 
   useEffect(() => {
     if (fur) {
-      setSwatches(monsterType.swatches.fur);
+      setSwatches(MFur);
       setType('fur');
       setCopy('REMOVE FUR');
       setMonsterFur(monsterColor);
     } else {
-      setSwatches(monsterType.swatches.colors);
+      setSwatches(MColors);
       setType('color');
       setCopy('ADD FUR');
       setMonsterFur(null);
@@ -27,7 +35,7 @@ function Colors() {
 
   return (
     <div>
-      {swatchs.map((i) => {
+      {swatchs.map((i:IProps) => {
         return <Swatch key={i.id} id={i.id} url={i.url} type={type} />;
       })}
       {monsterType.fur && (

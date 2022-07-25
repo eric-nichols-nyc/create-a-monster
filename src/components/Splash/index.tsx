@@ -10,10 +10,10 @@ const {setCurrentStep} = useMonsterCreator()
     <div className="splash">
     <div className="splash__content">
         <div>
-            <img src="./images/splash/title.png" />
+            <img src="./images/splash/title.png" alt="title"/>
         </div>
         <div>
-            <img src="./images/splash/group.png" />
+            <img src="./images/splash/group.png" alt="splash"/>
         </div>
     </div>
     <button className="btn btn--round btn--round--splash" onClick={() =>{setCurrentStep(0)}}>start</button>

@@ -2,8 +2,12 @@ import React, { useState, useEffect } from 'react';
 import useMonsterCreator from '../../hooks/useMonsterCreator';
 import './monster.scss';
 
+interface IMonster {
+  id: string;
+  url:string;
+}
+
 export default function Monster() {
-  const url = '';
   const [color, setColor] = useState('');
   const [lashes, setLashes] = useState();
   const [hair, setHair] = useState();
@@ -21,25 +25,25 @@ export default function Monster() {
   } = useMonsterCreator();
 
   useEffect(() => {
-    const url = monsterType.colors.filter((c) => c.id === monsterColor)[0].url;
+    const url = monsterType.colors.filter((c:IMonster) => c.id === monsterColor)[0].url;
     setColor(url);
   }, [monsterColor, monsterType]);
 
   useEffect(() => {
-    const url = monsterType.colors.filter((c) => c.id === monsterColor)[0].url;
+    const url = monsterType.colors.filter((c:IMonster) => c.id === monsterColor)[0].url;
     setColor(url);
   }, [monsterColor, monsterType.colors]);
 
   useEffect(() => {
     if (monsterLashes !== '') {
-      const url = monsterType.eyelashes.filter((c) => c.id === monsterLashes)[0].url;
+      const url = monsterType.eyelashes.filter((c:IMonster) => c.id === monsterLashes)[0].url;
       setLashes(url);
     }
   }, [monsterLashes]);
 
   useEffect(() => {
     if (monsterHair !== null) {
-      const url = monsterType.hair.filter((c) => c.id === monsterHair)[0].url;
+      const url = monsterType.hair.filter((c:IMonster) => c.id === monsterHair)[0].url;
       setHair(url);
     }
   }, [monsterHair]);
@@ -60,7 +64,7 @@ export default function Monster() {
         )}
         {monsterFur !== null && (
           <img
-            src={monsterType.fur.filter((c) => c.id === monsterFur)[0].url}
+            src={monsterType.fur.filter((c:IMonster) => c.id === monsterFur)[0].url}
             alt='logo'
             style={{ position: 'absolute', top: 0 }}
           />
@@ -74,21 +78,21 @@ export default function Monster() {
         )}
         {monsterHair !== null && (
           <img
-            src={monsterType.hair.filter((c) => c.id === monsterHair)[0].url}
+            src={monsterType.hair.filter((c:IMonster) => c.id === monsterHair)[0].url}
             alt='logo'
             style={{ position: 'absolute', top: 0 }}
           />
         )}
         {monsterHorn && (
           <img
-            src={monsterType.horns.filter((c) => c.id === monsterHorn)[0].url}
+            src={monsterType.horns.filter((c:IMonster) => c.id === monsterHorn)[0].url}
             alt='logo'
             style={{ position: 'absolute', top: 0 }}
           />
         )}
         {monsterHat && (
           <img
-            src={monsterType.hats.filter((c) => c.id === monsterHat)[0].url}
+            src={monsterType.hats.filter((c:IMonster) => c.id === monsterHat)[0].url}
             alt='logo'
             style={{ position: 'absolute', top: 0 }}
           />
@@ -100,7 +104,7 @@ export default function Monster() {
       <div
         id='polaroid'
         className='monster__photo__polaroid'>
-        <img src={monsterUrl} />
+        <img src={monsterUrl} alt="my monster"/>
         <div
           className='monster__photo__caption'>
           {monsterName}

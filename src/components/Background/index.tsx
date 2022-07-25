@@ -1,4 +1,3 @@
-import React from 'react';
 import useMonsterCreator from '../../hooks/useMonsterCreator';
 import './background.scss';
 
